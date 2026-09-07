@@ -145,7 +145,23 @@
     <p class="tagline">Jotain kaunista on kasvamassa.</p>
 
     <section class="garden" aria-label="Animoitu ASCII-ruusu">
-      <pre id="rose" role="img" aria-label="ASCII-ruusu kukkii"></pre>
+      <pre id="rose" role="img" aria-label="ASCII-ruusu">                 *        .
+                  .-'''''''-.
+               .-'  .-'''-.  '-.
+             .'   .'  .-.  '.   '.
+            /   .'   /   \   '.   \
+           ;   /    |  .-. |    \   ;
+           |  ;     \ '-' /     ;  |
+           ;   \     '---'     /   ;
+            \   '.           .'   /
+             '.   '-.______.-'   .'
+               '-._           _.-'
+                   '---------'
+                      /  |  \
+                 ____/   |   \____
+                    /    |    \
+                   /_____|_____\
+                     ||     ||</pre>
     </section>
 
     <div class="status">kukkiva yhteys · online</div>
@@ -153,98 +169,6 @@
   </main>
 
   <script>
-    const frames = [
-`                 .     *
-                         .
-                 .   .-'''-.
-                    /       \\
-                   |  .-.-.  |
-                    \\  \"  / /
-                     '-._.-'
-                        |
-                        |
-                       / \\
-                      /   \\
-                     /     \\
-                    /       \\
-                   /_________\\
-                    ||     ||`,
-`                       *
-                 .           .
-                    .-'''-.
-                .  /  .-.  \\
-                  |  (   )  |
-                  |   '-.   |
-                   \\       /
-                    '-.__.-'
-                        |
-                       /|
-                      / |
-                 _.__/  |
-                    /    \\
-                   /______\\
-                    ||   ||`,
-`                 .       .       *
-                    _.-'''-._
-                 .-'  .---.  '-.
-                /   .'     '.   \\
-               ;   /  .---.  \\   ;
-               |  ;  (     )  ;  |
-               ;   \\  '---'  /   ;
-                \\   '-.__.-'   /
-                 '-._________.-'
-                       /|
-                      / |
-                     /  |
-                ____/   |
-                   /     \\
-                  /_______\\
-                   ||    ||`,
-`                          .
-                     _.-'''-._
-                 _.-'  .---.  '-._
-               .'   .-'     '-.   '.
-              /   .'  .---.    '.   \\
-             ;   /   /     \\    \\   ;
-             |  ;   |  .-.  |    ;  |
-             ;   \\   \\ '-' /   /   ;
-              \\   '.  '---'  .'   /
-               '._  '-.___.-'  _.'
-                  '-._______.-'
-                      /  |
-                 ____/   |
-                    /     \\
-                   /_______\\
-                    ||    ||`,
-`                 *        .
-                  .-'''''''-.
-               .-'  .-'''-.  '-.
-             .'   .'  .-.  '.   '.
-            /   .'   /   \\   '.   \\
-           ;   /    |  .-. |    \\   ;
-           |  ;     \\ '-' /     ;  |
-           ;   \\     '---'     /   ;
-            \\   '.           .'   /
-             '.   '-.______.-'   .'
-               '-._           _.-'
-                   '---------'
-                      /  |  \\
-                 ____/   |   \\____
-                    /    |    \\
-                   /_____|_____\\
-                     ||     ||` 
-    ];
-
-    const rose = document.querySelector('#rose');
-    let frame = 0;
-
-    function bloom() {
-      rose.textContent = frames[frame];
-      frame = (frame + 1) % frames.length;
-    }
-
-    bloom();
-    setInterval(bloom, 900);
     document.querySelector('#year').textContent = new Date().getFullYear();
   </script>
 </body>
