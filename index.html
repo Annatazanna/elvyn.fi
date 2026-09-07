@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#130d1c">
+  <title>elvyn.fi — kukinta alkaa</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f8e9ef;
+      --muted: #c8aebc;
+      --rose: #ff789d;
+      --rose-hot: #ffd0df;
+      --leaf: #77d6a2;
+      --night: #130d1c;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 50% 35%, #34203c 0, #1c1228 28%, var(--night) 68%);
+      color: var(--ink);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .5;
+      background-image:
+        radial-gradient(circle, #fff 0 1px, transparent 1.5px),
+        radial-gradient(circle, #ffb5cb 0 1px, transparent 1.5px);
+      background-position: 8% 19%, 72% 8%;
+      background-size: 170px 140px, 230px 190px;
+      animation: drift 18s linear infinite;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      width: min(100% - 2rem, 980px);
+      min-height: 100vh;
+      margin: auto;
+      padding: clamp(3rem, 9vw, 7rem) 0 3rem;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 1rem;
+      color: var(--rose-hot);
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      font-size: clamp(.65rem, 1.5vw, .82rem);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, serif;
+      font-size: clamp(3.5rem, 13vw, 8rem);
+      font-weight: 400;
+      letter-spacing: -.07em;
+      line-height: .8;
+      text-shadow: 0 0 35px #ff5c9038;
+    }
+
+    .tagline {
+      margin: 1.8rem 0 0;
+      max-width: 35rem;
+      color: var(--muted);
+      font-family: Georgia, serif;
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      font-style: italic;
+    }
+
+    .garden {
+      width: min(100%, 720px);
+      margin: 2.5rem auto 1.5rem;
+      padding: clamp(1rem, 3vw, 2rem);
+      border: 1px solid #ffb2c728;
+      border-radius: 18px;
+      background: #09070d66;
+      box-shadow: 0 18px 80px #0008, inset 0 1px #fff1;
+    }
+
+    pre {
+      min-height: 17rem;
+      margin: 0;
+      color: var(--rose-hot);
+      font-size: clamp(.52rem, 1.55vw, .92rem);
+      line-height: 1.08;
+      text-align: left;
+      white-space: pre;
+      overflow-x: auto;
+      text-shadow: 0 0 12px #ff789d99;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      color: var(--leaf);
+      font-size: .78rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .status::before {
+      content: "";
+      width: .55rem;
+      height: .55rem;
+      border-radius: 50%;
+      background: var(--leaf);
+      box-shadow: 0 0 14px var(--leaf);
+      animation: pulse 1.6s ease-in-out infinite;
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      color: #927a8b;
+      font-size: .72rem;
+    }
+
+    @keyframes pulse { 50% { opacity: .35; transform: scale(.7); } }
+    @keyframes drift { to { background-position: 18% 30%, 65% 18%; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">elvyn.fi · ensimmäinen kukinta</p>
+    <h1>Elvyn</h1>
+    <p class="tagline">Jotain kaunista on kasvamassa.</p>
+
+    <section class="garden" aria-label="Animoitu ASCII-ruusu">
+      <pre id="rose" role="img" aria-label="ASCII-ruusu kukkii"></pre>
+    </section>
+
+    <div class="status">kukkiva yhteys · online</div>
+    <footer>© <span id="year"></span> elvyn.fi</footer>
+  </main>
+
+  <script>
+    const frames = [
+`                 .     *
+                         .
+                 .   .-'''-.
+                    /       \\
+                   |  .-.-.  |
+                    \\  \"  / /
+                     '-._.-'
+                        |
+                        |
+                       / \\
+                      /   \\
+                     /     \\
+                    /       \\
+                   /_________\\
+                    ||     ||`,
+`                       *
+                 .           .
+                    .-'''-.
+                .  /  .-.  \\
+                  |  (   )  |
+                  |   '-.   |
+                   \\       /
+                    '-.__.-'
+                        |
+                       /|
+                      / |
+                 _.__/  |
+                    /    \\
+                   /______\\
+                    ||   ||`,
+`                 .       .       *
+                    _.-'''-._
+                 .-'  .---.  '-.
+                /   .'     '.   \\
+               ;   /  .---.  \\   ;
+               |  ;  (     )  ;  |
+               ;   \\  '---'  /   ;
+                \\   '-.__.-'   /
+                 '-._________.-'
+                       /|
+                      / |
+                     /  |
+                ____/   |
+                   /     \\
+                  /_______\\
+                   ||    ||`,
+`                          .
+                     _.-'''-._
+                 _.-'  .---.  '-._
+               .'   .-'     '-.   '.
+              /   .'  .---.    '.   \\
+             ;   /   /     \\    \\   ;
+             |  ;   |  .-.  |    ;  |
+             ;   \\   \\ '-' /   /   ;
+              \\   '.  '---'  .'   /
+               '._  '-.___.-'  _.'
+                  '-._______.-'
+                      /  |
+                 ____/   |
+                    /     \\
+                   /_______\\
+                    ||    ||`,
+`                 *        .
+                  .-'''''''-.
+               .-'  .-'''-.  '-.
+             .'   .'  .-.  '.   '.
+            /   .'   /   \\   '.   \\
+           ;   /    |  .-. |    \\   ;
+           |  ;     \\ '-' /     ;  |
+           ;   \\     '---'     /   ;
+            \\   '.           .'   /
+             '.   '-.______.-'   .'
+               '-._           _.-'
+                   '---------'
+                      /  |  \\
+                 ____/   |   \\____
+                    /    |    \\
+                   /_____|_____\\
+                     ||     ||` 
+    ];
+
+    const rose = document.querySelector('#rose');
+    let frame = 0;
+
+    function bloom() {
+      rose.textContent = frames[frame];
+      frame = (frame + 1) % frames.length;
+    }
+
+    bloom();
+    setInterval(bloom, 900);
+    document.querySelector('#year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
