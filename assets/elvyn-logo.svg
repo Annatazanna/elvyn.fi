@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
+  <title id="title">ELVYN lintusymboli</title>
+  <desc id="desc">Geometrinen ELVYN-logo läpinäkyvällä taustalla.</desc>
+  <g id="outer-ring" fill="none" stroke="#A9432F" stroke-width="17">
+    <circle cx="500" cy="500" r="462"/>
+  </g>
+  <g id="wordmark" fill="none" stroke="#B44832" stroke-width="30" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M-32 -34 L28 -34 M-32 0 L20 0 M-32 34 L28 34 M-32 -34 L-32 34" transform="translate(241.97 319.32) rotate(-55.00)"/>
+    <path d="M-25 -38 L-25 38 L34 38" transform="translate(352.12 221.87) rotate(-28.00)"/>
+    <path d="M-40 -38 L0 38 L40 -38" transform="translate(500.00 185.00) rotate(0.00)"/>
+    <path d="M-35 -38 L0 0 L35 -38 M0 0 L0 39" transform="translate(666.92 232.86) rotate(32.00)"/>
+    <path d="M-36 -38 L0 0 L0 39 M0 0 L36 -38" transform="translate(758.03 319.32) rotate(55.00)"/>
+  </g>
+  <g id="bird" fill="#252525">
+    <path d="M500 522 C451 518 402 520 346 515 C270 508 198 486 137 448 C155 494 191 535 242 563 C190 550 143 525 105 493 C123 554 172 602 242 622 C192 618 151 603 118 583 C146 650 207 693 282 705 C243 711 205 706 174 696 C226 765 324 793 406 755 C439 740 464 713 479 676 L500 622 Z"/>
+    <path d="M500 522 C549 518 598 520 654 515 C730 508 802 486 863 448 C845 494 809 535 758 563 C810 550 857 525 895 493 C877 554 828 602 758 622 C808 618 849 603 882 583 C854 650 793 693 718 705 C757 711 795 706 826 696 C774 765 676 793 594 755 C561 740 536 713 521 676 L500 622 Z"/>
+    <path d="M448 567 C464 531 473 491 489 466 C495 456 501 449 508 449 C525 449 539 477 551 506 L571 565 C549 583 527 592 500 592 C479 592 462 583 448 567 Z"/>
+    <path d="M460 648 C474 670 487 684 500 692 C513 684 526 670 540 648 L566 736 L500 778 L434 736 Z"/>
+  </g>
+</svg>
