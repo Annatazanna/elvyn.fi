@@ -119,7 +119,7 @@
     .contact-links { display:flex; flex-wrap:wrap; justify-content:center; gap:.7rem 1.4rem; margin:1.5rem auto 0; }
     .contact-links a { color:var(--accent-light); font-size:clamp(1.3rem,3vw,1.8rem); font-weight:700; text-underline-offset:.2em; }
     .site-footer { padding:1.5rem 0; border-top:1px solid var(--line); color:var(--muted); font-size:.82rem; }
-    .visitor-counter { margin:.8rem 0 0; text-align:center; color:rgba(238,231,216,.42); font-size:.68rem; }
+    .visitor-counter { width:fit-content; margin:.8rem auto 0; padding:.2rem .55rem; border-radius:999px; background:rgba(28,35,30,.55); color:rgba(238,231,216,.42); font-size:.62rem; letter-spacing:.01em; }
     .footer-row { display:flex; justify-content:space-between; gap:1rem; }
     .verse { margin:2rem auto 0; max-width:42rem; text-align:center; color:var(--muted); font-family:Georgia,serif; font-size:1rem; line-height:1.7; }
     .verse-word { font-style:normal; }
@@ -143,11 +143,14 @@
   <script data-goatcounter="https://elvyn.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
   <script>
-    const visitorCountTimer = setInterval(() => {
-      if (!window.goatcounter?.visit_count) return;
-      clearInterval(visitorCountTimer);
-      window.goatcounter.visit_count({append: '#visitor-count'});
-    }, 100);
+    fetch('https://elvyn.goatcounter.com/counter/' + encodeURIComponent(location.pathname) + '.json')
+      .then(response => response.ok ? response.json() : null)
+      .then(data => {
+        if (data && data.count !== undefined) {
+          document.querySelector('#visitor-count').textContent = data.count;
+        }
+      })
+      .catch(() => {});
   </script>
 </body>
 </html>
