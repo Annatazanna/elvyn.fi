@@ -119,6 +119,7 @@
     .contact-links { display:flex; flex-wrap:wrap; justify-content:center; gap:.7rem 1.4rem; margin:1.5rem auto 0; }
     .contact-links a { color:var(--accent-light); font-size:clamp(1.3rem,3vw,1.8rem); font-weight:700; text-underline-offset:.2em; }
     .site-footer { padding:1.5rem 0; border-top:1px solid var(--line); color:var(--muted); font-size:.82rem; }
+    .visitor-counter { margin:.8rem 0 0; text-align:center; color:rgba(238,231,216,.42); font-size:.68rem; }
     .footer-row { display:flex; justify-content:space-between; gap:1rem; }
     .verse { margin:2rem auto 0; max-width:42rem; text-align:center; color:var(--muted); font-family:Georgia,serif; font-size:1rem; line-height:1.7; }
     .verse-word { font-style:normal; }
@@ -137,9 +138,16 @@
     <section class="section section-soft"><div class="shell"><div class="section-heading"><p class="eyebrow">Käytännössä</p><h2>Helppo tulla ensimmäiseen tapaamiseen.</h2></div><div class="service-copy"><p>Helpoiten voidaan jutella etänä puhelimitse tai videokeskustelussa. Tapaamiset onnistuvat Turengissa virka-ajan ulkopuolella tai sunnuntaisin. Voin myös lähteä kanssasi lenkille tai tulla teille. Sovitaan yhdessä paras tapa työskennellä.</p><p>Pari- ja perheterapiassa tapaan kunkin osallisen ensin kahden kesken, vasta tämän jälkeen keskustelemme koko porukalla yhdessä. Näin jokainen saa vapaasti ilmaista oman näkemyksensä tilanteesta ilman toisen henkilön läsnäoloa ja vaikutusta.</p></div><div class="price-section" id="hinnasto"><p class="eyebrow">Hinnasto</p><h3>Palveluiden hinnat ja kestot.</h3><div class="price-list"><div class="price-row"><span class="price-name">Tutustumispuhelu</span><span class="price-meta">15 min</span><span class="price-value">Ilmainen</span></div><div class="price-row"><span class="price-name">Logoterapeuttinen yksilöterapia</span><span class="price-meta">n. 55 min</span><span class="price-value">75 €</span></div><div class="price-row"><span class="price-name">Logoterapeuttinen pariterapia</span><span class="price-meta">n. 80 min</span><span class="price-value">90 €</span></div><div class="price-row"><span class="price-name">Logoterapeuttinen perheterapia</span><span class="price-meta">n. 90 min</span><span class="price-value">100 €</span></div></div><h4 class="price-group-title">Aloittavan yrittäjän tarjoukset syksylle 2026</h4><div class="price-list"><div class="price-row"><span class="price-name">Yksilöterapia 5 krt.</span><span class="price-meta"></span><span class="price-value">320 €</span></div><div class="price-row"><span class="price-name">Parisuhdepaketti</span><span class="price-meta">yksilökäynti sinulle ja hänelle sekä 3 yhteistä keskustelua</span><span class="price-value">350 €</span></div><div class="price-row"><span class="price-name">Perhepaketti</span><span class="price-meta">yksilökäynti 4 krt. ja perhekeskusteluja 3 krt.</span><span class="price-value">520 €</span></div></div><p class="price-note">Alennusryhmät: −10 % kertakäynneistä.</p></div></div></section>
     <section class="section cta" id="yhteys"><div class="shell"><p class="eyebrow">Ota yhteyttä</p><h2>Jos jokin tässä puhutteli, aloitetaan siitä.</h2><p>Kysy lisää, pyydä vartin tutustumispuhelua tai varaa aika.</p><div class="contact-links"><a href="tel:+358408180160">040 8180 160</a><a href="mailto:anna@elvyn.fi">anna@elvyn.fi</a></div><div class="actions" style="justify-content:center"><a class="button button-primary" href="mailto:anna@elvyn.fi">Ota yhteyttä</a></div></div></section>
   </main>
-  <footer class="site-footer"><div class="shell"><div class="footer-row"><span>© <span id="year"></span> ELVYN · Y-tunnus 2160165-7</span><span><a href="tel:+358408180160">040 8180 160</a> · <a href="mailto:anna@elvyn.fi">anna@elvyn.fi</a></span></div><p class="verse"><em>Hän ravitsee minut aina hyvyydellään, ja minä <span class="verse-word">elvyn</span> nuoreksi, niin kuin kotka.</em><span class="verse-ref">Psalmi 103:5</span></p></div></footer>
+  <footer class="site-footer"><div class="shell"><div class="footer-row"><span>© <span id="year"></span> ELVYN · Y-tunnus 2160165-7</span><span><a href="tel:+358408180160">040 8180 160</a> · <a href="mailto:anna@elvyn.fi">anna@elvyn.fi</a></span></div><p class="verse"><em>Hän ravitsee minut aina hyvyydellään, ja minä <span class="verse-word">elvyn</span> nuoreksi, niin kuin kotka.</em><span class="verse-ref">Psalmi 103:5</span></p><p class="visitor-counter">Sivulla käyntejä: <span id="visitor-count"></span></p></div></footer>
   <script>document.querySelector('#year').textContent = new Date().getFullYear();</script>
   <script data-goatcounter="https://elvyn.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
+  <script>
+    const visitorCountTimer = setInterval(() => {
+      if (!window.goatcounter?.visit_count) return;
+      clearInterval(visitorCountTimer);
+      window.goatcounter.visit_count({append: '#visitor-count'});
+    }, 100);
+  </script>
 </body>
 </html>
